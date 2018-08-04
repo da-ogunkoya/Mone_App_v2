@@ -1,0 +1,7 @@
+1.Database model is usel on moel/database.php
+
+2.direct use of PDO is reserved in Users_old_code.php
+
+3.old mode is reserved in Users_old_code.php
+
+4. I had struggle in admiting two different result from object array of PDO and associative array form PDO

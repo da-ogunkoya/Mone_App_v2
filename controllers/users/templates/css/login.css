@@ -1,0 +1,40 @@
+
+
+body{
+	background-top:-20px;
+	background:url(images/nature.png) repeat;
+	background-size: cover;
+	font-weight: bold;
+	
+	
+}
+#main{
+	margin-top:8px;
+}
+
+ .response{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content:space-around;
+		padding:3px;
+		boxing-sizing:border-box;
+		
+}
+ .response h4{
+	 font-size:inherit	;
+ }
+#status,#message{
+	display: none;
+}
+footer{
+	background:#000000;
+	color:#ffffff;
+	padding:20px;
+}
+p{
+	padding:20px;
+}
+
+section#main{
+	background:url(images/bak/nature.jpg) repeat;
+}

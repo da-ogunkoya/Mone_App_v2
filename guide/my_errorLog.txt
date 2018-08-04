@@ -1,0 +1,6 @@
+/* config */
+
+Header already sent:check all auto run file in config file
+and ensure each <?php is starting at the top
+
+session cached cookie alreasdy sent: as practise always ensure session_start is always at the top 

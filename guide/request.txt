@@ -1,0 +1,6 @@
+Request
+****************
+1. Add realtime chat box
+2.add social media login/ facebook & twitter
+3.payment gateway :google wallet & paypal
+4. debt management, create recordable or searchable debt logs

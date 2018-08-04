@@ -1,0 +1,67 @@
+
+
+//first upload
+
+1. //UPDATE agent_new_customer with agid from agent id
+		SET OPTION SQL_BIG_SELECTS=1;UPDATE agent_new_customer INNER JOIN agent ON agent_new_customer.agent_email=agent.email
+SET agent_new_customer.agid=agent.id;
+
+2.
+	// do update for agent_cust_reciver table with agent 'id' into every agent-customer receiver
+
+SET Option SQL_BIG_SELECTS=1;UPDATE agent_cust_receiver INNER JOIN agent ON agent_cust_receiver.agent_email=agent.email
+SET agent_cust_receiver.agid=agent.id;
+
+3.
+
+//update agcid on agent_cust_receiver
+SET Option SQL_BIG_SELECTS=1;
+UPDATE agent_cust_receiver
+INNER JOIN agent_new_customer ON agent_cust_receiver.agent_cust_email = agent_new_customer.email
+SET agent_cust_receiver.agcid =agent_new_customer.id;
+
+
+
+4. //update cid on agent_receiver
+SET Option SQL_BIG_SELECTS=1;
+UPDATE receiver 
+INNER JOIN new_customer ON receiver.sender_email = new_customer.email
+SET receiver.cid=new_customer.id;
+
+5. //update agent_cust_transaction with agcid of from agent_new_customer table id
+
+SET Option SQL_BIG_SELECTS=1;UPDATE `agent_cust_transaction`  INNER JOIN `agent_new_customer` ON agent_cust_transaction.sender_email=agent_new_customer.email SET agent_cust_transaction.agcid=agent_new_customer.id , agent_cust_transaction.s_phone=agent_new_customer.pnumber ;
+
+6. 
+//update agent_cust_transaction.agid 
+SET Option SQL_BIG_SELECTS=1;UPDATE agent_cust_transaction INNER JOIN agent ON agent_cust_transaction.agent_email=agent.email SET agent_cust_transaction.agid =agent.id;
+
+7. //update cid on cust_transaction
+SET Option SQL_BIG_SELECTS=1;
+UPDATE cust_transaction
+INNER JOIN new_customer ON cust_transaction.sender_email = new_customer.email
+SET cust_transaction.cid=new_customer.id;
+
+
+//last update
+
+
+8. //update agent_cust_transaction with agcrid of from agent_cust_receiver table id
+
+SET Option SQL_BIG_SELECTS=1;UPDATE `agent_cust_transaction`  INNER JOIN `agent_cust_receiver` ON agent_cust_transaction.agcrid=agent_cust_receiver.id SET agent_cust_transaction.r_phone=agent_cust_receiver.b_phone ;
+
+9. //update agent_cust_transaction with agcrid of from agent_cust_receiver table id
+
+SET Option SQL_BIG_SELECTS=1;UPDATE `cust_transaction`  INNER JOIN `receiver` ON cust_transaction.crid=receiver.id SET cust_transaction.r_phone=receiver.b_phone  ;
+ 
+ 
+
+//updated field on moneyapp 24-03-2017
+ALTER TABLE `busy` ADD `viewRate` INT NOT NULL AFTER `sms_hash`;ALTER TABLE `agent_cust_receiver` ADD `bank` VARCHAR(100) NOT NULL;ALTER TABLE `receiver` ADD `bank` VARCHAR(100) NOT NULL ;ALTER TABLE `agent` ADD `myPhoto_name` VARCHAR(100),ADD `myPhoto_size` VARCHAR(100), ADD `myPhoto_type` VARCHAR(100);ALTER TABLE `new_customer` ADD `myPhoto_name` VARCHAR(100),ADD `myPhoto_size` VARCHAR(100), ADD `myPhoto_type` VARCHAR(100);
+
+daph
+not going: 4 & 5
+
+
+
+
