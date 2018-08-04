@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('../controllers/users/config/config.php');
+require_once ('../controllers/users/config/constant.php');
 require_once 'addon.php';
 
 	//Helper Function Files
